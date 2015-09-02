@@ -3,10 +3,10 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Dialog.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Dialog.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Nachricht.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Nachricht.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Dialogue.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Dialogue.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Message.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Message.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />

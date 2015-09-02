@@ -16,7 +16,7 @@ class Dialogue {
 public:
     Dialogue() { };
 
-    virtual ~Dialogue() { }
+    ~Dialogue() { }
 
     void setContentAndProcess(std::string filename);
 

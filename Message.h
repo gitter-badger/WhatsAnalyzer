@@ -12,8 +12,6 @@
 class Message {
 
 public:
-    ~Message() { }
-
     Message() { }
 
     std::string processMessage(std::string text);

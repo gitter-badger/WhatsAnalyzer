@@ -34,5 +34,5 @@ void Message::processDateOfMsg(string date) {
     std::vector<unsigned short> parts;
     boost::split(parts, date, boost::is_any_of('.'));
     boost::gregorian::date t(parts[0], parts[1], parts[2]);
-    Message::dateOfMsg = t;
+    dateOfMsg = t;
 }

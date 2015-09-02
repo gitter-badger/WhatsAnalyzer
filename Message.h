@@ -5,7 +5,6 @@
 #ifndef WHATSANALYZER_MESSAGE_H
 #define WHATSANALYZER_MESSAGE_H
 
-#include <string>
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>
 

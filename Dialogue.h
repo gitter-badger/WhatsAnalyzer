@@ -12,7 +12,6 @@
 #include "Message.h"
 
 class Dialogue {
-
 public:
     Dialogue() { };
 
@@ -24,9 +23,7 @@ private:
     std::ifstream _file;
     std::vector<std::string> _participants;
     std::vector<Message> _nachrichten;
-
     bool processFile();
-
     void addParticipant(std::string p);
 };
 

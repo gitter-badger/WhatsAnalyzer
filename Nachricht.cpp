@@ -32,5 +32,4 @@ string addText(string t){
 }
 
 string Nachricht::nachricht(string text) {
-    return NULL; //
 }

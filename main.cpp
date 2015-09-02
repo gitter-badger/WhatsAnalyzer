@@ -1,21 +1,22 @@
 #include <iostream>
 #include "fstream"
 #include "boost/algorithm/string.hpp"
+#include "Dialog.h"
 
-void testaround();
 
 using namespace std;
 
-void test();
+void test(string t);
 int main() {
-    //ifstream lesen("test.txt");
-    test();
+    ifstream lesen("test.txt");
+    Dialog d;
+    d.setContent(lesen);
     getchar();
     return 0;
 }
-void test(){
+void test(string t){
     //string t = "02.08.2015, 19:08 - BöserBoy: I know";
-    string t = "02.19.2015, 17:50 - B�serBoy: Mei dad lasst mi ause weil i grad no d�ner essen war mit erm";
+    //string t = "02.19.2015, 17:50 - BöserBoy: Mei dad lasst mi ause weil i grad no d�ner essen war mit erm";
     string::size_type pos = t.find('-', 0);
     string first = t.substr(0, pos);
     string second = t.substr(pos+1);
@@ -31,4 +32,5 @@ void test(){
     string message = second.substr(posDoublePoint+2);
     cout << participant << endl;
     cout << message << endl;
+    cout << "--------------------------------------" << endl;
 }

@@ -19,7 +19,7 @@ public:
     static vector<string> participants;
     static vector<Nachricht> nachrichten;
     virtual ~Dialog() { }
-    void setContent(ifstream f);
+    void setContent(ifstream&);
 
 private:
 

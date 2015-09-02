@@ -11,14 +11,14 @@
 using namespace boost;
 using namespace std;
 
-static fstream file;
+
 void Dialog() {
 }
 
-/*bool Dialog::processFile() {
+bool processFile() {
     string temp;
     if (file.good()) {
-        while (getline(Dialog::file, temp)) {
+        while (getline(file, temp)) {
             Nachricht n;
             //Dialog::participants.push_back("yolo");
         }
@@ -26,7 +26,7 @@ void Dialog() {
     return true;
 }
 
-void Dialog::setContent(ifstream f) {
+void Dialog::setContent(ifstream& f) {
     Dialog::file << f;
     processFile();
 }
@@ -35,4 +35,4 @@ bool addParticipant(string p){
     if(find(Dialog::participants.begin(), Dialog::participants.end(), p)!=Dialog::participants.end()){
         Dialog::participants.push_back(p);
     }
-}*/
+}

@@ -29,8 +29,8 @@ std::string Message::processMessage(std::string text) {
 
 void Message::processDateOfMsg(std::string date) {
     //02.08.2015
-    std::vector<unsigned short> parts;
-    boost::split(parts, date, boost::is_any_of('.'));
-    boost::gregorian::date t(parts[0], parts[1], parts[2]);
+    std::vector<std::string> parts;
+    boost::split(parts, date, boost::is_any_of("."));
+    boost::gregorian::date t(std::atoi(parts[0].c_str()), std::atoi(parts[1].c_str()), std::atoi(parts[2].c_str()));
     dateOfMsg = t;
 }

@@ -3,18 +3,26 @@
 
 #include "Dialogue.h"
 
-void test(std::string s) {
-    //std::regex e("([0-9]{2})\\.([0-9]{2})\\.([0-9]{4}),\\s([0-9]{2}:[0-9]{2})\\s\\-\\s*(.*?):\\s(.*)", std::regex_constants::icase);
-    //02.19.2015, 17:50 - BöserBoy: Mei dad lasst mi ause weil i grad no döner essen war mit erm
-    std::regex e("\\d");
-    bool t = std::regex_match(s, e);
-    std::cout << (t ? "richtig" : "falsch") << std::endl;
+void test() {
+    std::string content_p = "05.09.15 13:07:36: Chrissy ♛♡: xdddd";
+    std::regex iOS("([0-9]{2})\\.([0-9]{2})\\.([0-9]{2})\\s([0-9]{2}):([0-9]{2}):[0-9][0-9]:\\s*(.*?):\\s(.*)",
+                   std::regex_constants::icase);
+    std::cmatch res;
+    std::regex_search(content_p.c_str(), res, e);
+    for (int i = 0; i < res.size(); i++) {
+        std::cout << res.str(i) << std::endl;
+    }
 }
+
 int main() {
-//    Dialogue d;
-//    std::string lesen = "test.txt";
-//    d.setContentAndProcess(t("6");
-    test("5");
+    bool testmode = true;
+    if (!testmode) {
+        Dialogue d;
+        std::string lesen = "test.txt";
+        d.setContentAndProcess(lesen);
+        getchar();
+        return 0;
+    }
+    test();
     getchar();
-    return 0;
 }

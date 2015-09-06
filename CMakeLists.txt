@@ -3,5 +3,5 @@ project(WhatsAnalyzer)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES main.cpp MessageProcessor.cpp MessageProcessor.h)
 add_executable(WhatsAnalyzer ${SOURCE_FILES} Dialogue.cpp Dialogue.h Message.cpp Message.h)

@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include "MessageProcessor.h"
 #include "Dialogue.h"
 
 
@@ -10,13 +11,15 @@ bool Dialogue::processFile() {
     std::string temp;
     if (_file.good()) {
         while (getline(_file, temp)) {
-            Message n;
-            addParticipant(n.processMessage(temp));
-            _nachrichten.push_back(n);
+            Message m;
+            addParticipant(m.addMessage(MessageProcessor::process(temp)));
+            _nachrichten.push_back(m);
         }
         return true;
     }
-    return false;
+    else {
+        return false;
+    }
 }
 
 void Dialogue::addParticipant(std::string p) {

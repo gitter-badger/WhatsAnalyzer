@@ -5,26 +5,23 @@
 #ifndef WHATSANALYZER_MESSAGE_H
 #define WHATSANALYZER_MESSAGE_H
 
-#include <boost/date_time/gregorian/gregorian.hpp>
-#include <boost/date_time/posix_time/posix_time.hpp>
+#include <string>
+#include <iostream>
+#include <time.h>
 
 class Message {
 
 public:
-    Message() { }
+    struct processedMsg {
+        std::string content;
+        std::string participant;
+        struct tm time = {0};
+    };
 
-    std::string processMessage(std::string text);
-
-    const boost::posix_time::ptime &getTimeOfMsg() const { return timeOfMsg; }
-
-    const boost::gregorian::date &getDateOfMsg() const { return dateOfMsg; }
-
-private:
+    std::string addMessage(processedMsg msg);
     std::string content;
-    boost::gregorian::date dateOfMsg;
-    boost::posix_time::ptime timeOfMsg;
-
-    void processDateOfMsg(std::string Date);
+    std::string participant;
+    struct tm time = {0};
 };
 
 

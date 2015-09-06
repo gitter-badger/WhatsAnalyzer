@@ -14,15 +14,14 @@
 class Dialogue {
 public:
     Dialogue() { };
-
     ~Dialogue() { }
 
-    void setContentAndProcess(std::string filename);
-
-private:
     std::ifstream _file;
     std::vector<std::string> _participants;
     std::vector<Message> _nachrichten;
+    void setContentAndProcess(std::string filename);
+
+private:
     bool processFile();
     void addParticipant(std::string p);
 };

@@ -5,16 +5,17 @@
 #ifndef WHATSANALYZER_DIALOGUE_H
 #define WHATSANALYZER_DIALOGUE_H
 
-#include <boost/algorithm/string.hpp>
 #include <string>
 #include <fstream>
+#include <vector>
 
 #include "Message.h"
 
 class Dialogue {
 public:
     Dialogue() { };
-    ~Dialogue() { }
+
+    ~Dialogue() { };
 
     std::ifstream _file;
     std::vector<std::string> _participants;

@@ -8,6 +8,5 @@ std::string Message::addMessage(Message::processedMsg msg) {
     content = msg.content;
     time = msg.time;
     participant = msg.participant;
-    std::cout << content << std::endl;
     return participant;
 }

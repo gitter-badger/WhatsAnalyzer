@@ -20,7 +20,7 @@ public:
         struct tm time = {0};
     };
 
-    static Message::processedMsg process(std::string content_p);
+    static Message::processedMsg process(std::string content_p, std::regex android, std::regex iOS);
 
 };
 

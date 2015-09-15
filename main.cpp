@@ -6,7 +6,7 @@ INITIALIZE_EASYLOGGINGPP
 
 int main() {
     Dialogue d;
-    std::string lesen = "ios.txt";
+    std::string lesen = "multiline.txt";
     d.setContentAndProcess(lesen);
     //testt();
     return 0;

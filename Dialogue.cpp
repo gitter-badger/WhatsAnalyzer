@@ -19,8 +19,14 @@ bool Dialogue::processFile() {
         while (getline(_file, temp)) {
             if (temp != "") {
                 Message m;
-                addParticipant(m.addMessage(MessageProcessor::process(temp, android, iOS)));
-                _nachrichten.push_back(m);
+                std::string participant = m.addMessage(MessageProcessor::process(temp, android, iOS));
+                if (participant == "") {
+                    _nachrichten[_nachrichten.size()].content += m.content;
+                }
+                else {
+                    addParticipant(participant);
+                    _nachrichten.push_back(m);
+                }
             }
         }
         return true;

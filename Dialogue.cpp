@@ -9,11 +9,11 @@
 
 bool Dialogue::processFile() {
     std::string temp;
-    std::regex android("([0-9]{2})\\.([0-9]{2})\\.([0-9]{4}),\\s([0-9]{2}:[0-9]{2})\\s\\-\\s*(.*?):\\s(([.]|[^.])*)",
-                       std::regex_constants::icase);
-    //08.05.15 07:01:56: Brudiii ❤️: Jaa
-    std::regex iOS("([0-9]{2})\\.([0-9]{2})\\.([0-9]{2})\\s([0-9]{2}):([0-9]{2}):[0-9][0-9]:\\s([^:]*):\\s(.*)",
-                   std::regex_constants::icase);
+    //02.09.2015, 17:16 - Christoph: Reuschl
+    std::regex android("([0-9]{2})\\.([0-9]{2})\\.[0-9]{2}([0-9]{2}),\\s([0-9]{2}):([0-9]{2})\\s\\-\\s*(.*?):\\s(.*)",
+                       std::regex_constants::icase | std::regex_constants::ECMAScript);
+    std::regex iOS("([0-9]{2})\\.([0-9]{2})\\.([0-9]{2})\\s([0-9]{2}):([0-9]{2}):[0-9]{2}:\\s*(.*):\\s([^.|.]*)",
+                   std::regex_constants::icase | std::regex_constants::ECMAScript);
     if (_file.good()) {
         int i = 0;
         while (getline(_file, temp)) {
@@ -21,7 +21,6 @@ bool Dialogue::processFile() {
                 Message m;
                 addParticipant(m.addMessage(MessageProcessor::process(temp, android, iOS)));
                 _nachrichten.push_back(m);
-                std::cout << i++ << std::endl;
             }
         }
         return true;

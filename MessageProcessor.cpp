@@ -17,6 +17,7 @@ Message::processedMsg MessageProcessor::process(std::string content_p, std::rege
     }
     else {
         Message::processedMsg m;
+        m.content = content_p;
         LOG(ERROR) << "No regex match found";
         return m;
     }

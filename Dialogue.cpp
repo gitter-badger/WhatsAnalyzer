@@ -13,13 +13,14 @@ bool Dialogue::processFile() {
         while (getline(_file, temp)) {
             if (temp != "") {
                 Message m = Message();
-                std::string participant = m.addMessage(MessageProcessor::process(temp));
+                m.addMessage(MessageProcessor::process(temp));
                 if (m.flag == 2) {
-                    _nachrichten.back().content += m.content;
+                    _messages.back().content += m.content;
                 }
                 else if (m.flag == 1) {
-                    addParticipant(participant);
-                    _nachrichten.push_back(m);
+                    auto po = _participants.emplace(m.participant, 0);
+                    po.first->second += 1;
+                    _messages.push_back(m);
                 }
             }
         }
@@ -29,11 +30,6 @@ bool Dialogue::processFile() {
         return false;
     }
 }
-
-void Dialogue::addParticipant(std::string p) {
-    _participants.emplace(p, 0);
-}
-
 void Dialogue::setContentAndProcess(std::string filename) {
     _file.open(filename);
     processFile();
@@ -42,8 +38,8 @@ void Dialogue::setContentAndProcess(std::string filename) {
 //END OF INIT-STUFF
 
 void Dialogue::givePercentages() {
-    std::cout << _participants.size() << std::endl;
-    for (auto &i : _nachrichten) {
-        _participants[i.participant] += 1;
+    for (auto p: _participants) {
+        int percentage = (int) (((float) p.second / (float) _messages.size()) * 100);
+        std::cout << p.first << " schrieb " << (float) percentage << "% der Nachrichten" << std::endl;
     }
 }

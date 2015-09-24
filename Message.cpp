@@ -4,10 +4,9 @@
 
 #include "Message.h"
 
-std::string Message::addMessage(Message::processedMsg msg) {
-    content = msg.content;
-    time = msg.time;
-    participant = msg.participant;
+void Message::addMessage(Message::processedMsg msg) {
+    content = msg._content;
+    time = msg._time;
+    participant = msg._sender;
     flag = msg.flag;
-    return participant;
 }

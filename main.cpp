@@ -12,6 +12,6 @@ int main() {
     std::string lesen = "droid.txt";
     d.setContentAndProcess(lesen);
     d.givePercentages();
-    std::cout << "whalla";
+    std::cout << "ende";
     return 0;
 }

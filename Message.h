@@ -13,9 +13,9 @@ class Message {
 
 public:
     struct processedMsg {
-        std::string content;
-        std::string participant;
-        struct tm time = {0};
+        std::string _content;
+        std::string _sender;
+        struct tm _time = {0};
         int flag;
     };
 
@@ -29,7 +29,7 @@ public:
 //        3 -> Alert
 //    #####################################
 
-    std::string addMessage(processedMsg msg);
+    void addMessage(processedMsg msg);
     std::string content;
     std::string participant;
     struct tm time = {0};

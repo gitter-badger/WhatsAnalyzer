@@ -6,9 +6,6 @@
 #define WHATSANALYZER_MESSAGEPROCESSOR_H
 
 #include <string>
-#include <regex>
-
-#include <time.h>
 #include "Message.h"
 
 class MessageProcessor {

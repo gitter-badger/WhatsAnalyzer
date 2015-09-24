@@ -8,6 +8,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <unordered_map>
 
 #include "Message.h"
 
@@ -18,9 +19,11 @@ public:
     ~Dialogue() { };
 
     std::ifstream _file;
-    std::vector<std::string> _participants;
+    std::unordered_map<std::string, int> _participants;
     std::vector<Message> _nachrichten;
     void setContentAndProcess(std::string filename);
+
+    void givePercentages();
 
 private:
     bool processFile();

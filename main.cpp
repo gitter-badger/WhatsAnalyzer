@@ -5,9 +5,13 @@
 INITIALIZE_EASYLOGGINGPP
 
 int main() {
+    el::Configurations conf("cfg.txt");
+    el::Loggers::reconfigureLogger("default", conf);
+    el::Loggers::reconfigureAllLoggers(conf);
     Dialogue d;
-    std::string lesen = "multiline.txt";
+    std::string lesen = "droid.txt";
     d.setContentAndProcess(lesen);
-    //testt();
+    d.givePercentages();
+    std::cout << "whalla";
     return 0;
 }

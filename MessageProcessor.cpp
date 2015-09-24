@@ -5,8 +5,12 @@
 #include "MessageProcessor.h"
 #include "easylogging++.h"
 
-Message::processedMsg MessageProcessor::process(std::string content_p, std::regex android, std::regex iOS) {
+Message::processedMsg MessageProcessor::process(std::string content_p) {
     std::regex regex;
+    std::regex android("([0-9]{2})\\.([0-9]{2})\\.[0-9]{2}([0-9]{2}),\\s([0-9]{2}):([0-9]{2})\\s\\-\\s*(.*?):\\s(.*)",
+                       std::regex_constants::icase | std::regex_constants::ECMAScript);
+    std::regex iOS("([0-9]{2})\\.([0-9]{2})\\.([0-9]{2})\\s([0-9]{2}):([0-9]{2}):[0-9]{2}:\\s*(.*):\\s([^.|.]*)",
+                   std::regex_constants::icase | std::regex_constants::ECMAScript);
     if (std::regex_match(content_p, android)) {
         LOG(INFO) << "androidmode selected";
         regex = android;
@@ -18,7 +22,8 @@ Message::processedMsg MessageProcessor::process(std::string content_p, std::rege
     else {
         Message::processedMsg m;
         m.content = content_p;
-        LOG(ERROR) << "No regex match found";
+        LOG(INFO) << "Multiline found";
+        m.flag = 2;
         return m;
     }
     std::cmatch res;
@@ -33,5 +38,6 @@ Message::processedMsg MessageProcessor::process(std::string content_p, std::rege
     msg.time = time;
     msg.participant = res[6].str();
     msg.content = res[7].str();
+    msg.flag = 1;
     return msg;
 }

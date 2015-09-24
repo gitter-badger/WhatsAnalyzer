@@ -8,5 +8,6 @@ std::string Message::addMessage(Message::processedMsg msg) {
     content = msg.content;
     time = msg.time;
     participant = msg.participant;
+    flag = msg.flag;
     return participant;
 }

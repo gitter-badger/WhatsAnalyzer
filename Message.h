@@ -16,7 +16,18 @@ public:
         std::string content;
         std::string participant;
         struct tm time = {0};
+        int flag;
     };
+
+
+    int flag;
+//    #####################################
+//    FLAG EXPLAINS THE TYPE OF THE Message
+//        Flag -> Meaning
+//        1 -> normal Message
+//        2 -> multiline Message
+//        3 -> Alert
+//    #####################################
 
     std::string addMessage(processedMsg msg);
     std::string content;

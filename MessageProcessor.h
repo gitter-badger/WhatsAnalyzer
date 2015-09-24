@@ -14,13 +14,7 @@
 class MessageProcessor {
 
 public:
-    struct processedMsg {
-        std::string content;
-        std::string participant;
-        struct tm time = {0};
-    };
-
-    static Message::processedMsg process(std::string content_p, std::regex android, std::regex iOS);
+    static Message::processedMsg process(std::string content_p);
 
 };
 

@@ -8,9 +8,11 @@
 
 
 class MessageFactory {
+public:
+    int processFile(std::string filename);
 private:
     std::vector<Message> _messages;
-
+    std::unordered_map<std::string, int> _participants;
 };
 
 class MessageProcessor {

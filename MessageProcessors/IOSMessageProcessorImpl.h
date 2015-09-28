@@ -2,6 +2,9 @@
 // Created by Christoph on 24.09.2015.
 //
 
+#include "../MessageFactory.h"
+#include <regex>
+
 class IOSMessageProcessorImpl : public MessageProcessor {
 public:
     virtual ~IOSMessageProcessorImpl() { };

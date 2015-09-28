@@ -7,6 +7,7 @@
 #include "MessageProcessors/AndroidMessageProcessorImpl.h"
 #include <fstream>
 
+
 class MessageProcessorFactory {
 public:
     template<typename T, typename... Args>
@@ -27,7 +28,8 @@ public:
 };
 
 
-int MessageFactory::processFile(std::string filename) {
+std::pair<std::vector<Message>, std::unordered_map<std::string, int>> MessageFactory::processFile(
+        std::string filename) {
     std::ifstream file;
     file.open(filename);
     std::unique_ptr<MessageProcessor> messageProcessor;
@@ -56,7 +58,5 @@ int MessageFactory::processFile(std::string filename) {
             }
         }
     }
-    messageProcessor->process("");
-    return 0;
+    return std::make_pair(_messages, _participants);
 }
-

@@ -21,11 +21,9 @@ public:
     std::ifstream _file;
     std::unordered_map<std::string, int> _participants;
     std::vector<Message> _messages;
-    void setContentAndProcess(std::string filename);
     void givePercentages();
 
-private:
-    bool processFile();
+    void processFile(std::string filename);
 };
 
 

@@ -1,15 +1,19 @@
+//
+// Created by Christoph on 27.09.2015.
+//
+
 #ifndef WHATSANALYZER_MESSAGEFACTORY_H
 #define WHATSANALYZER_MESSAGEFACTORY_H
 
 
-#include <regex>
+#include <vector>
 #include <unordered_map>
 #include "Message.h"
-
+#include <regex>
 
 class MessageFactory {
 public:
-    int processFile(std::string filename);
+    std::pair<std::vector<Message>, std::unordered_map<std::string, int>> processFile(std::string filename);
 private:
     std::vector<Message> _messages;
     std::unordered_map<std::string, int> _participants;
@@ -48,3 +52,6 @@ public:
     };
 
 };
+
+
+#endif //WHATSANALYZER_MESSAGEFACTORY_H
